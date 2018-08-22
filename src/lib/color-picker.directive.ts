@@ -19,7 +19,7 @@ export class ColorPickerDirective implements OnChanges, OnDestroy {
 
   @Input() colorPicker: string;
 
-  @Input() cpWidth: string = '230px';
+  @Input() cpWidth: string = '272px';
   @Input() cpHeight: string = 'auto';
 
   @Input() cpToggle: boolean = false;
@@ -96,7 +96,8 @@ export class ColorPickerDirective implements OnChanges, OnDestroy {
 
   constructor(private injector: Injector, private cfr: ComponentFactoryResolver,
     private appRef: ApplicationRef, private vcRef: ViewContainerRef, private elRef: ElementRef,
-    private _service: ColorPickerService) {}
+    private _service: ColorPickerService) {
+  }
 
   ngOnDestroy(): void {
     if (this.cmpRef !== undefined) {
@@ -183,7 +184,7 @@ export class ColorPickerDirective implements OnChanges, OnDestroy {
   }
 
   public closeDialog(): void {
-    if (this.dialog && this.cpDialogDisplay === 'popup') {
+    if (this.dialog) {
       this.dialog.closeDialog();
     }
   }

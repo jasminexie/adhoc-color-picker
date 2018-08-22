@@ -141,7 +141,7 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.cpWidth !== 230) {
+    if (this.cpWidth !== 272) {
       const hueWidth = this.hueSlider.nativeElement.offsetWidth;
       const alphaWidth = this.alphaSlider.nativeElement.offsetWidth;
 
@@ -284,7 +284,7 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
   public onResize(): void {
     if (this.position === 'fixed') {
       this.setDialogPosition();
-    } else if (this.cpDialogDisplay !== 'inline') {
+    } else {
       this.closeColorPicker();
     }
   }
@@ -363,8 +363,8 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  public onHueChange(value: {v: number, rgX: number}): void {
-    this.hsva.h = value.v / value.rgX;
+  public onHueChange(value: {v: number, rgY: number}): void {
+    this.hsva.h = value.v / value.rgY;
     this.sliderH = this.hsva.h;
 
     this.updateColorPicker();
@@ -377,7 +377,7 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public onAlphaChange(value: {v: number, rgX: number}): void {
-    this.hsva.a = value.v / value.rgX;
+    this.hsva.a = (1 - value.v / value.rgX);
 
     this.updateColorPicker();
 
@@ -602,10 +602,10 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
       this.selectedColor = this.service.outputFormat(this.hsva, 'rgba', null);
 
       this.slider = new SliderPosition(
-        (this.sliderH || this.hsva.h) * this.sliderDimMax.h - 8,
-        this.hsva.s * this.sliderDimMax.s - 8,
-        (1 - this.hsva.v) * this.sliderDimMax.v - 8,
-        this.hsva.a * this.sliderDimMax.a - 8
+        (this.sliderH || this.hsva.h),
+        this.hsva.s,
+        (1 - this.hsva.v),
+        this.hsva.a
       );
 
       if (emit && lastOutput !== this.outputColor) {
