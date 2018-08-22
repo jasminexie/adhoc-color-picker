@@ -29,6 +29,10 @@
     "bundle:umd": "rollup -c config/rollup-umd.config.js --silent",
     "minify:umd": "uglifyjs bundles/$npm_package_name.umd.js -o bundles/$npm_package_name.umd.min.js --source-map=\"filename=bundles/$npm_package_name.umd.min.js.map\""
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasminexie/adhoc-color-picker.git"
+  },
   "dependencies": {},
   "devDependencies": {
     "@angular/cli": "^6.1.0",
