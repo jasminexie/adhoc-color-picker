@@ -3,9 +3,9 @@
   "description": "Color picker widget for Angular",
   "license": "MIT",
   "version": "1.0.0",
-  "main": "./bundles/ngx-color-picker.umd.js",
-  "module": "./dist/ngx-color-picker.es5.js",
-  "typings": "./dist/ngx-color-picker.d.ts",
+  "main": "./bundles/adhoc-color-picker.umd.js",
+  "module": "./dist/adhoc-color-picker.es5.js",
+  "typings": "./dist/adhoc-color-picker.d.ts",
   "tslint": {
     "extends": "./tslint.json"
   },
