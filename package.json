@@ -47,7 +47,7 @@
     "codelyzer": "^4.4.0",
     "core-js": "^2.5.0",
     "cpx": "^1.5.0",
-    "ng-packagr": "^3.0.0",
+    "ng-packagr": "^10.1.1",
     "rollup": "^0.63.0",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-sourcemaps": "^0.4.0",
